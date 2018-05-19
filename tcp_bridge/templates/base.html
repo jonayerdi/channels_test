@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8"> 
+		<title>ChannelsTest</title>
+		<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/jquery_csrf_ajax.js' %}"></script>
+        {% block extra_headers %}            
+        {% endblock %}
+    </head>
+    <body>
+		<div class="container">
+			{% block content %}  
+			{% endblock %}
+		</div>
+    </body>
+</html>
