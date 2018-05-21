@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block extra_headers %}
+	<script type="text/javascript" src="{% static 'js/reconnecting-websocket.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 	<h1 id="textfield"></h1>
 {% endblock %}
