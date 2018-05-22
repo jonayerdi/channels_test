@@ -8,15 +8,16 @@ tcpBridge.start()
 
 class WSConsumer(WebsocketConsumer):
 
-    async def connect(self):
+    def connect(self):
+        self.accept()
         with tcpBridge.consumersLock:
             tcpBridge.consumers.append(self)
         log.info('WebSocket connect')
 
-    async def receive(self, text_data):
+    def receive(self, text_data):
         log.info('WebSocket receive: {}'.format(text_data))
 
-    async def disconnect(self, code):
+    def disconnect(self, code):
         with tcpBridge.consumersLock:
             tcpBridge.consumers.remove(self)
         log.info('WebSocket disconnect: {}'.format(code))
